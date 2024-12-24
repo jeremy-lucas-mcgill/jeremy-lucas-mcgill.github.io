@@ -3,24 +3,28 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
 }
-
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #333;
-    padding: 10px 20px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
 }
 
 .navbar h1 {
     color: white;
     margin: 0;
-    font-size: 1.5em;
+    font-size: 1.5em; /* Adjust size if needed for responsiveness */
+    white-space: nowrap; /* Prevent text wrapping */
 }
 
 .nav-links {
     display: flex;
-    gap: 15px;
+    gap: 10px; /* Adjust the spacing between links */
+    flex-wrap: wrap; /* Allow the links to wrap */
 }
 
 .nav-links a {
@@ -29,10 +33,29 @@ body {
     padding: 10px 15px;
     border-radius: 5px;
     transition: background-color 0.3s;
+    font-size: 1em; /* Ensure text resizes if needed */
+    white-space: nowrap; /* Prevent wrapping of individual links */
 }
 
 .nav-links a:hover {
     background-color: #575757;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        justify-content: center;
+        width: 100%; /* Stretch links across the navbar width */
+    }
+
+    .nav-links a {
+        text-align: center;
+        width: 100%; /* Make links span the full width */
+    }
 }
 
 .content {
@@ -79,11 +102,18 @@ body {
     padding: 20px;
 }
 
+@media (max-width: 768px) {
+    .center-box {
+        flex-direction: column; /* Stack items vertically */
+        gap: 20px; /* Adjust the gap for vertical stacking */
+    }
+}
+
 .text-container {
     display: flex;
     flex-direction: column; 
     gap: 10px; 
-    max-width: 60%; 
+    max-width: 100%; 
 }
 
 .normal-text {
